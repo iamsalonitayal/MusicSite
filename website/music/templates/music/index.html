@@ -1,0 +1,14 @@
+ <!-- Loads the path to your static files -->
+{% extends 'music/base.html' %}
+ {% block body %}
+        {% if all_albums %}
+         <h3 xmlns:music="http://www.w3.org/1999/xhtml"> Here are all of our Albums</h3>
+            <ul>
+                {% for album in all_albums %}
+                    <li><a href="{% url 'music:detail' album.id %}" >{{ album.album_title }}</a></li>
+                {% endfor %}
+            </ul>
+         {% else %}
+             <h3> No album available</h3>
+         {% endif %}
+{% endblock %}
